@@ -17,6 +17,13 @@ local_conf_info=$?
 if [ $local_conf_info -ne 0 ];then
 	echo "Append ${CONFLINE} in the local.conf file"
 	echo ${CONFLINE} >> conf/local.conf
+
+	#add configs for faster builds and to save space
+	echo "DL_DIR = \"\${HOME}/yocto/build/downloads\" " >> conf/local.conf
+	echo "SSTATE_DIR = \"\${HOME}/yocto/build/sstate-cache\" " >> conf/local.conf
+	echo "INHERIT += \"rm_work\"" >> conf/local.conf
+	echo "RM_WORK_EXCLUDE += \"core-image-aesd\"" >> conf/local.conf
+	echo "RM_WORK_EXCLUDE += \"aesd-assignments\"" >> conf/local.conf
 	
 else
 	echo "${CONFLINE} already exists in the local.conf file"
