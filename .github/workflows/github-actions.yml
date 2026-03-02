@@ -23,6 +23,8 @@ jobs:
                  -v $SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent \
                  -e GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" \
                  -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
+                 -v /home/tiagoneto/yocto/build/downloads:/home/tiagoneto/yocto/build/downloads \
+                 -v /home/tiagoneto/yocto/build/sstate-cache:/home/tiagoneto/yocto/build/sstate-cache \
                  cuaesd/aesd-autotest:24-assignment6-yocto \
                  --workdir=${GITHUB_WORKSPACE} \
                  ./build.sh
@@ -35,6 +37,8 @@ jobs:
             run: |
                docker run --rm \
                  -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
+                 -v /home/tiagoneto/yocto/build/downloads:/home/tiagoneto/yocto/build/downloads \
+                 -v /home/tiagoneto/yocto/build/sstate-cache:/home/tiagoneto/yocto/build/sstate-cache \
                  cuaesd/aesd-autotest:assignment6-yocto \
                  --workdir=${GITHUB_WORKSPACE} \
                  ./full-test.sh
