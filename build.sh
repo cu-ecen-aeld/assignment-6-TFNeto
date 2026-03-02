@@ -20,7 +20,7 @@ if [ $local_conf_info -ne 0 ];then
 
 	#add configs for faster builds and to save space
 	echo "DL_DIR = \"/home/tiagoneto/yocto/build/downloads\" " >> conf/local.conf
-	echo "SSTATE_DIR = \"/home/tiagoneto//yocto/build/sstate-cache\" " >> conf/local.conf
+	echo "SSTATE_DIR = \"/home/tiagoneto/yocto/build/sstate-cache\" " >> conf/local.conf
 	echo "INHERIT += \"rm_work\"" >> conf/local.conf
 	echo "RM_WORK_EXCLUDE += \"core-image-aesd\"" >> conf/local.conf
 	echo "RM_WORK_EXCLUDE += \"aesd-assignments\"" >> conf/local.conf
